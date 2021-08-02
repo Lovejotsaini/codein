@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>template</title>
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+
+    <script src="..\js\react.development.js"></script>
+    <script src="..\js\react-dom.development.js"></script>
+    <script src="..\js\babel.js"></script>
+
+    <script type="text/babel">
+
+        const rootHandle = document.getElementById('root')
+        const name = "love jot"
+        const { useState } = React
+        function Revstr(props) {
+            const [str, setStr] = useState(name)
+            function strev(){
+                const rev = name.split("").reverse().join("")
+                setStr(rev)
+            }
+
+            return (
+                <div>
+                    <h2>{str}</h2>
+                    <button onClick={() => {
+                        strev()
+                    }}>reverse</button>
+                </div>
+            )
+
+        }
+
+
+        ReactDOM.render(<Revstr />, rootHandle)
+    </script>
+</body>
+
+</html>

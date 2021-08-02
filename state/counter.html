@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>template</title>
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+
+    <script src="..\js\react.development.js"></script>
+    <script src="..\js\react-dom.development.js"></script>
+    <script src="..\js\babel.js"></script>
+
+    <script type="text/babel">
+
+        const rootHandle = document.getElementById('root')
+        const { useState } = React
+        function Counter(props) {
+            const [count, setCount] = useState(0)
+            function upme() {
+                return setCount(count + 1)
+            }
+            function downme() {
+                return setCount(count - 1)
+            }
+            function reset(){
+                const result=confirm("are you sure")
+                if(result){
+                return setCount(0)
+                }
+            }
+            return (
+                <div>
+                    <h1>{count}</h1>
+                    <button onClick={upme}>up</button>
+                    <button onClick={reset}>reset</button>
+                    <button onClick={downme}>down</button>
+                    </div>
+            )
+
+        }
+
+
+
+        ReactDOM.render(<Counter />, rootHandle)
+    </script>
+</body>
+
+</html>

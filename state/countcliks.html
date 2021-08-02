@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>template</title>
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+
+    <script src="..\js\react.development.js"></script>
+    <script src="..\js\react-dom.development.js"></script>
+    <script src="..\js\babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')
+        const { useState } = React
+        function Clikme(props) {
+            const [clik, setClik] = useState(0)
+            const [count, setCount] = useState(0)
+
+            function clicksin() {
+                setClik(clik + 1)
+                setCount(count + 1)
+            }
+            function clicksdown() {
+                setCount(count - 1)
+                setClik(clik + 1)
+            }
+            return (
+                <div>
+                    <h2>clicks-{clik} count-{count}</h2>
+                    <button onClick={() => {
+                        clicksin()
+                    }}>up</button>
+                    <button onClick={() => {
+                        clicksdown()
+                    }}>down</button>
+                </div>
+            )
+        }
+
+        ReactDOM.render(<Clikme />, rootHandle)
+    </script>
+</body>
+
+</html>
